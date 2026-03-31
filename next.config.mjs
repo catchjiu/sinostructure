@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Allow Google Fonts in layout
+  // Required for minimal standalone Docker image
+  output: 'standalone',
+
   async headers() {
     return [
       {

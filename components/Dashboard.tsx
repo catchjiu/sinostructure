@@ -221,7 +221,7 @@ export default function Dashboard() {
         </div>
         <p className="text-xs text-slate-500 leading-relaxed">
           Chinese sentences follow <strong>Subject → Time → Place → Verb → Object</strong> order.
-          Example: 我明天在家看書 = <em>"I will read a book at home tomorrow."</em>
+          Example: 我明天在家看書 = <em>&ldquo;I will read a book at home tomorrow.&rdquo;</em>
         </p>
       </motion.div>
     </motion.div>

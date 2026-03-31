@@ -5,7 +5,7 @@ import { DndContext, DragEndEvent, DragStartEvent, DragOverlay, closestCenter, u
 import { SortableContext, horizontalListSortingStrategy, useSortable, arrayMove } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { Volume2, RefreshCw, ChevronRight, Sparkles, X } from 'lucide-react';
-import { SentenceTemplate, SentenceComponent, GrammarRole } from '@/types';
+import { SentenceComponent, GrammarRole } from '@/types';
 import { ROLE_LABELS, SENTENCE_TEMPLATES } from '@/constants/vocab';
 import { speakChinese } from '@/lib/audio';
 import { useAppStore } from '@/store/useAppStore';
@@ -73,7 +73,7 @@ function RoleBadge({ role }: { role: GrammarRole }) {
 
 // ─── Main Component ────────────────────────────────────────────────────────
 export default function STPVOBuilder() {
-  const { recordCorrect, recordIncorrect, getWeakWords } = useAppStore();
+  const { recordCorrect, recordIncorrect } = useAppStore();
   const [templateIndex, setTemplateIndex] = useState(0);
   const [shuffled, setShuffled] = useState<SentenceComponent[]>([]);
   const [slots, setSlots] = useState<(SentenceComponent | null)[]>(Array(5).fill(null));
@@ -81,7 +81,7 @@ export default function STPVOBuilder() {
   const [feedback, setFeedback] = useState<'idle' | 'correct' | 'incorrect'>('idle');
   const [slotFeedback, setSlotFeedback] = useState<(boolean | null)[]>(Array(5).fill(null));
   const [isSpeaking, setIsSpeaking] = useState(false);
-  const [attempts, setAttempts] = useState(0);
+  const [, setAttempts] = useState(0);
 
   const ORDER: GrammarRole[] = ['S', 'T', 'P', 'V', 'O'];
 

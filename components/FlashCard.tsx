@@ -100,11 +100,6 @@ export default function FlashCard() {
   // Derive the current filtered word pool
   const pool = VOCAB.filter(w => roleFilter === 'all' || w.role === roleFilter);
 
-  // Draw the first card on mount / when role changes
-  const getPool = useCallback(() =>
-    VOCAB.filter(w => roleFilter === 'all' || w.role === roleFilter),
-  [roleFilter]);
-
   const drawNext = useCallback((afterRole?: RoleFilter) => {
     const activePool = VOCAB.filter(w =>
       (afterRole ?? roleFilter) === 'all' || w.role === (afterRole ?? roleFilter)
